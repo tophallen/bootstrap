@@ -117,9 +117,9 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       ngModelCtrl.$setViewValue( dt );
       ngModelCtrl.$render();
     } else {
-      self.activeDate = date;
       $scope.datepickerMode = self.modes[ self.modes.indexOf( $scope.datepickerMode ) - 1 ];
     }
+    $timeout(function () { self.activeDate = date });
   };
 
   $scope.move = function( direction ) {
